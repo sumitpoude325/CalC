@@ -8,7 +8,7 @@ function appear(value) {
   document.getElementById("dis").value += value;
 }
 
-function allClear(value) {
+function allClear() {
   document.getElementById("dis").value = "";
 }
 
@@ -26,3 +26,21 @@ function calculate() {
   document.getElementById("dis").value = result;
   calculationDone = true;
 }
+
+
+// for keyboard
+document.addEventListener("keydown",function(event){
+  console.log(event.key);
+  if((event.key>=0 && event.key<=9) || event.key=='+'|| event.key=='-'|| event.key=='/' || event.key=='*'){
+    appear(event.key);
+  }
+  else if(event.key=='Delete'){
+    allClear();
+  }
+  else if(event.key=='Backspace'){
+    Clear();
+  }
+  else if(event.key=='=' && calculationDone==false){
+    calculate();
+  }
+})
