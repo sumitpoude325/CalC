@@ -1,5 +1,6 @@
 let calculationDone = false;
 
+//takes mouse input for numbers
 function appear(value) {
   if (calculationDone) {
     document.getElementById("dis").value = "";
@@ -8,10 +9,12 @@ function appear(value) {
   document.getElementById("dis").value += value;
 }
 
+// for AC function
 function allClear() {
   document.getElementById("dis").value = "";
 }
 
+// for C function
 function Clear() {
   const display = document.getElementById("dis");
   if (calculationDone) {
@@ -21,6 +24,7 @@ function Clear() {
   }
 }
 
+// calculates the dis
 function calculate() {
   let result = eval(document.getElementById("dis").value);
   document.getElementById("dis").value = result;
@@ -40,7 +44,7 @@ document.addEventListener("keydown",function(event){
   else if(event.key=='Backspace'){
     Clear();
   }
-  else if(event.key=='=' && calculationDone==false){
+  else if((event.key=='=' || event.key=="Enter") && calculationDone==false){
     calculate();
   }
 })
